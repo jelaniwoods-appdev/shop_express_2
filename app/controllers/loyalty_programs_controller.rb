@@ -24,7 +24,12 @@ class LoyaltyProgramsController < ApplicationController
     @loyalty_program = LoyaltyProgram.new(loyalty_program_params)
 
     if @loyalty_program.save
-      redirect_to @loyalty_program, notice: 'Loyalty program was successfully created.'
+      message = 'LoyaltyProgram was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @loyalty_program, notice: message
+      end
     else
       render :new
     end

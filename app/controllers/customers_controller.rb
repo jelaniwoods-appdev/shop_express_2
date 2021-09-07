@@ -8,6 +8,10 @@ class CustomersController < ApplicationController
 
   # GET /customers/1
   def show
+    @assigned_coupon = AssignedCoupon.new
+    @customer_friend = CustomerFriend.new
+    @loyalty_program = LoyaltyProgram.new
+    @purchased_product = PurchasedProduct.new
   end
 
   # GET /customers/new
