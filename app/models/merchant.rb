@@ -1,7 +1,9 @@
 class Merchant < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
-  # Direct associations
+  
+  include JwtToken
+# Direct associations
 
   has_many   :received_partnership_request,
              :class_name => "MerchantPartnership",
