@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "coupons#index"
   resources :assigned_coupons
   resources :customer_friends
   resources :merchant_partnerships
