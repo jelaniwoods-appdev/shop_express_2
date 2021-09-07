@@ -3,7 +3,7 @@ class MerchantsController < ApplicationController
 
   # GET /merchants
   def index
-    @merchants = Merchant.all
+    @merchants = Merchant.page(params[:page]).per(10)
   end
 
   # GET /merchants/1
