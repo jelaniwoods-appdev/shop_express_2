@@ -18,6 +18,10 @@ RSpec.describe Customer, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:senders) }
+
+    it { should have_many(:receivers) }
+
     end
 
     describe "Validations" do

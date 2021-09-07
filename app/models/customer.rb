@@ -25,6 +25,14 @@ class Customer < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :senders,
+             :through => :received_many_friends_request,
+             :source => :sender
+
+  has_many   :receivers,
+             :through => :sent_many_friends_request,
+             :source => :receiver
+
   # Validations
 
   # Scopes
