@@ -19,5 +19,4 @@ class PurchasedProductResource < ApplicationResource
              resource: CouponResource
 
   # Indirect associations
-
 end

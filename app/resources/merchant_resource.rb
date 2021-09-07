@@ -50,16 +50,15 @@ class MerchantResource < ApplicationResource
 
   many_to_many :customers
 
-
   filter :sender_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:senders).where(:merchant_partnerships => {:sender_id => value})
+      scope.eager_load(:senders).where(merchant_partnerships: { sender_id: value })
     end
   end
 
   filter :receiver_id, :integer do
     eq do |scope, value|
-      scope.eager_load(:receivers).where(:merchant_partnerships => {:receiver_id => value})
+      scope.eager_load(:receivers).where(merchant_partnerships: { receiver_id: value })
     end
   end
 end

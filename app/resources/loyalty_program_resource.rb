@@ -14,5 +14,4 @@ class LoyaltyProgramResource < ApplicationResource
              resource: MerchantResource
 
   # Indirect associations
-
 end
