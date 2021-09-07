@@ -18,6 +18,8 @@ RSpec.describe Merchant, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:customers) }
+
     end
 
     describe "Validations" do

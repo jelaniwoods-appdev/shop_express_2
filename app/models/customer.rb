@@ -25,6 +25,10 @@ class Customer < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :merchants,
+             :through => :loyalty_programs,
+             :source => :merchants
+
   has_many   :senders,
              :through => :received_many_friends_request,
              :source => :sender
