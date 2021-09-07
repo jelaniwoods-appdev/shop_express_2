@@ -58,7 +58,7 @@
     <% end %>
 
     <%= f.label :picture %>
-    <%= f.file_field :picture, class: "form-control" %>
+    <%= f.text_field :picture, class: picture_class, placeholder: "Enter picture" %>
     <% if picture_was_invalid %>
       <% product.errors.full_messages_for(:picture).each do |message| %>
         <div class="invalid-feedback d-flex">

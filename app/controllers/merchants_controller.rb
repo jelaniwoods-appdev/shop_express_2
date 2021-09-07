@@ -3,6 +3,10 @@ class MerchantsController < ApplicationController
 
   def index
     @merchants = Merchant.page(params[:page]).per(10)
+    @location_hash = Gmaps4rails.build_markers(@merchants.where.not(picture_latitude: nil)) do |merchant, marker|
+      marker.lat merchant.picture_latitude
+      marker.lng merchant.picture_longitude
+    end
   end
 
   def show

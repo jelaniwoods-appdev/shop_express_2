@@ -5,6 +5,10 @@ class ProductsController < ApplicationController
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true).includes(:merchants,
                                                    :purchased_products).page(params[:page]).per(10)
+    @location_hash = Gmaps4rails.build_markers(@products.where.not(picture_latitude: nil)) do |product, marker|
+      marker.lat product.picture_latitude
+      marker.lng product.picture_longitude
+    end
   end
 
   def show

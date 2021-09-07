@@ -19,7 +19,9 @@
 
       <dt>Picture</dt>
       <dd>
-        <%= cl_image_tag @merchant.picture, class: "img-fluid" %>
+        <div>
+          <%= render partial: "merchants/one_photo_map" %>
+        </div>
       </dd>
 
     </dl>
