@@ -32,6 +32,34 @@ class MerchantResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :senders, resource: MerchantResource do
+    assign_each do |merchant, merchants|
+      merchants.select do |m|
+        m.id.in?(merchant.senders.map(&:id))
+      end
+    end
+  end
+
+  has_many :receivers, resource: MerchantResource do
+    assign_each do |merchant, merchants|
+      merchants.select do |m|
+        m.id.in?(merchant.receivers.map(&:id))
+      end
+    end
+  end
+
   many_to_many :customers
 
+
+  filter :sender_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:senders).where(:merchant_partnerships => {:sender_id => value})
+    end
+  end
+
+  filter :receiver_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:receivers).where(:merchant_partnerships => {:receiver_id => value})
+    end
+  end
 end
