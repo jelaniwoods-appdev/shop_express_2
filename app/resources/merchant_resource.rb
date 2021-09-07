@@ -32,4 +32,6 @@ class MerchantResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :customers
+
 end

@@ -26,6 +26,8 @@ class CustomerResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :merchants
+
   has_many :senders, resource: CustomerResource do
     assign_each do |customer, customers|
       customers.select do |c|
