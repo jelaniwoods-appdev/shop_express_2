@@ -27,7 +27,9 @@
 
       <dt>Picture</dt>
       <!-- Display picture start -->
-      <dd><%= merchant.picture %></dd>
+      <dd>
+        <%= cl_image_tag @merchant.picture, class: "img-fluid" %>
+      </dd>
       <!-- Display picture end -->
 
     </dl>

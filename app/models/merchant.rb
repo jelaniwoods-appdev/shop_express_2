@@ -1,4 +1,6 @@
 class Merchant < ApplicationRecord
+  mount_uploader :picture, PictureUploader
+
   # Direct associations
 
   has_many   :received_partnership_request,
