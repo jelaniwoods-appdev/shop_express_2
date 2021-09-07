@@ -7,17 +7,29 @@
     <dl class="mb-1">
       <dt>Products</dt>
       <!-- Display products_id start -->
-      <dd><%= purchased_product.products_id %></dd>
+      <dd>
+        <% if @purchased_product.products.present? %>
+          <%= link_to purchased_product.products, purchased_product.products %>
+        <% end %>
+      </dd>
       <!-- Display products_id end -->
 
       <dt>Coupons</dt>
       <!-- Display coupons_id start -->
-      <dd><%= purchased_product.coupons_id %></dd>
+      <dd>
+        <% if @purchased_product.coupons.present? %>
+          <%= link_to purchased_product.coupons, purchased_product.coupons %>
+        <% end %>
+      </dd>
       <!-- Display coupons_id end -->
 
       <dt>Customers</dt>
       <!-- Display customers_id start -->
-      <dd><%= purchased_product.customers_id %></dd>
+      <dd>
+        <% if @purchased_product.customers.present? %>
+          <%= link_to purchased_product.customers, purchased_product.customers %>
+        <% end %>
+      </dd>
       <!-- Display customers_id end -->
 
       <dt>Quantity</dt>
